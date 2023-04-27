@@ -33,46 +33,32 @@
 
 # 📖 CryptoRank App <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
-**CryptoRank App** is a...
+**Cryptorank App** is a web app that lists all cryptocurrency exchanges and their respective ranking in the global cryptocurrency market. Users can click on an exchange to view more detailed information about it, including its trading volume, fees, supported cryptocurrencies, and user reviews.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
-
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
-
-<!-- Features -->
+- [React](https://reactjs.org/)
+- [React Router Dom](https://reactrouter.com/web/guides/quick-start)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [React Redux](https://react-redux.js.org/)
+- [Redux-toolkit](https://redux-toolkit.js.org/)
+- [Axios](https://axios-http.com/)
+- [Bootstrap](https://getbootstrap.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [PropTypes](https://www.npmjs.com/package/prop-types)
+- [Sass](https://sass-lang.com/)
+- [Redux Logger](https://github.com/LogRocket/redux-logger)
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- View a list of all cryptocurrency exchanges with their respective rankings in the global cryptocurrency market.
+- Click on an exchange to view more detailed information about it.
+- The app enables users to search for specific cryptocurrency exchanges easily.
+- View real-time exchange data using the app's integration with the CoinGecko API.
+- User-friendly interface and responsive design for desktop and mobile devices.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
