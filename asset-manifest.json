@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/cryptorank-app/static/css/main.06439bdc.css",
+    "main.js": "/cryptorank-app/static/js/main.3065e7f1.js",
+    "static/media/Montserrat-VariableFont_wght.ttf": "/cryptorank-app/static/media/Montserrat-VariableFont_wght.c28a96c369871653b853.ttf",
+    "index.html": "/cryptorank-app/index.html",
+    "main.06439bdc.css.map": "/cryptorank-app/static/css/main.06439bdc.css.map",
+    "main.3065e7f1.js.map": "/cryptorank-app/static/js/main.3065e7f1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.06439bdc.css",
+    "static/js/main.3065e7f1.js"
+  ]
+}
