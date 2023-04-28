@@ -54,11 +54,11 @@
 
 ### Key Features <a name="key-features"></a>
 
-- View a list of all cryptocurrency exchanges with their respective rankings in the global cryptocurrency market.
-- Click on an exchange to view more detailed information about it.
-- The app enables users to search for specific cryptocurrency exchanges easily.
-- View real-time exchange data using the app's integration with the CoinGecko API.
-- User-friendly interface and responsive design for desktop and mobile devices.
+- [ ] View a list of all cryptocurrency exchanges with their respective rankings in the global cryptocurrency market.
+- [ ] Click on an exchange to view more detailed information about it.
+- [ ] The app enables users to search for specific cryptocurrency exchanges easily.
+- [ ] View real-time exchange data using the app's integration with the CoinGecko API.
+- [ ] User-friendly interface and responsive design for desktop and mobile devices.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -66,9 +66,8 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
 
-- [Live Demo Link](https://google.com)
+- [Live Demo Link](https://fmanimashaun.github.io/Cryptorank-app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,87 +75,88 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
+### Prerequisites <a name="prerequisites"></a>
 
-To get a local copy up and running, follow these steps.
+- [Optional] Install git bash to your machine to enable you to clone this repo.
+- install Visual Studio to be able to host a local live version.
+- Install a browser to view the local live version.
 
-### Prerequisites
-
-In order to run this project you need:
-
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
-
-### Setup
+To get a local copy up and running follow these simple example steps.
+### Setup <a name="setup"></a>
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
+```sh
+  cd your-desired-folder
+  git clone https://github.com/fmanimashaun/cryptorank-hub.git
+  open the repo folder `bookstore-cms`
+```
+
+### Install <a name="install"></a>
+
+Install this project dependencies with:
 
 ```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  npm install
 ```
---->
 
-### Install
-
-Install this project with:
-
-<!--
-Example command:
-
-```sh
-  cd my-project
-  gem install
-```
---->
-
-### Usage
+### Usage <a name="usage"></a>
 
 To run the project, execute the following command:
 
-<!--
-Example command:
+```sh
+  npm run start
+```
+
+Runs the app in the development mode.\
+Open [http://localhost:3000/cryptorank-hub](http://localhost:3000/cryptorank-hub) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### Run tests <a name="run-tests"></a>
+
+To run tests to check the lint errors, run the following command:
+
+- To check for CSS lint errors, run the following command:
 
 ```sh
-  rails server
+  npm run stylelint
 ```
---->
 
-### Run tests
-
-To run tests, run the following command:
-
-<!--
-Example command:
+- To check for JS lint errors, run the following command:
 
 ```sh
-  bin/rails test test/models/article_test.rb
+  npm run eslinter
 ```
---->
 
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
+To run unit tests, run the following command:
 
 ```sh
+  npm run test
+```
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### Deployment <a name="deployment"></a>
+
+You can deploy this project to github pages by running the following command:
+
+```sh
+  npm run deploy
 
 ```
- -->
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+and it is automatically deployed to the github page.
+
+See the section about [github page deployment](https://github.com/gitname/react-gh-pages) for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
@@ -173,15 +173,12 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] Display a list of all cryptocurrencies and their respective rankings in the global cryptocurrency market.
+- [ ] Click on a cryptocurrency to view more detailed information about it.
+- [ ] The app enables users to search for specific cryptocurrencies easily.
+- [ ] View real-time cryptocurrency data using the app's integration with the CoinGecko API.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
 
@@ -190,8 +187,6 @@ Contributions, issues, and feature requests are welcome!
 Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
 
@@ -205,34 +200,28 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
 
-I would like to thank...
+I would like to thank [Microverse](https://www.microverse.org/) for giving me this opportunity to learn and build this project. And also, I would like to thank [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) on Behance for providing the design of this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FAQ (optional) -->
 
 ## ❓ FAQ (OPTIONAL) <a name="faq"></a>
 
 > Add at least 2 questions new developers would ask when they decide to use your project.
 
-- **[Question_1]**
+- **How is the ranking of the cryptocurrency exchanges determined?**
 
-  - [Answer_1]
+  - The ranking of the exchanges is determined based on their trading volume, as reported by the CoinGecko API, which aggregates data from various sources. The app ranks the exchanges by their trading volume over a 24-hour period.
 
-- **[Question_2]**
+- **Can I search for specific exchanges on the app?**
 
-  - [Answer_2]
+  - Yes, you can! The app includes a search bar that allows you to search for exchanges by name. Simply type in the name of the exchange you're looking for, and the app will display a list of all exchanges that match your search query.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
