@@ -1,0 +1,17 @@
+/* stylelint-disable at-rule-no-unknown */
+/* stylelint-disable csstree/validator */
+@use './_colors.scss' as color;
+
+.footer {
+  background-color: color.$accent-color-2;
+
+  &__link {
+    color: color.$white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: color.$black;
+    }
+  }
+}
