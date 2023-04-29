@@ -27,6 +27,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 400px;
   min-height: 100vh;
   margin-inline: auto;
 
@@ -36,6 +37,7 @@ body {
 
   & > main {
     margin-block: 0 auto;
+    background-color: color.$accent-color-2;
   }
 
   & > :first-child:not(main) {
