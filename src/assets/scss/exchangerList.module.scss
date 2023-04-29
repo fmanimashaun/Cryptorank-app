@@ -1,0 +1,28 @@
+/* stylelint-disable at-rule-no-unknown */
+/* stylelint-disable csstree/validator */
+@use './_colors.scss' as color;
+
+.heading {
+  background-color: color.$accent-color-2;
+  padding-block: 1rem;
+}
+
+.title {
+  color: color.$white;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.select {
+  width: fit-content;
+  &__form {
+    font-size: 0.75rem;
+    font-weight: 600;
+    inline-size: 150px;
+    padding: 0.5rem;
+  }
+}
+
+.list {
+  background-color: color.$primary-color;
+}
