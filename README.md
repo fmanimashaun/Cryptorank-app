@@ -29,8 +29,6 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-<!-- PROJECT DESCRIPTION -->
-
 # 📖 CryptoRank App <a name="about-project"></a>
 
 **Cryptorank App** is a web app that lists all cryptocurrency exchanges and their respective ranking in the global cryptocurrency market. Users can click on an exchange to view more detailed information about it, including its trading volume, fees, supported cryptocurrencies, and user reviews.
@@ -62,16 +60,12 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
 - [Live Demo Link](https://fmanimashaun.github.io/Cryptorank-app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -169,8 +163,6 @@ See the section about [github page deployment](https://github.com/gitname/react-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES -->
-
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] Display a list of all cryptocurrencies and their respective rankings in the global cryptocurrency market.
@@ -190,13 +182,10 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+If you like this project and want to support me, you can give a ⭐️ to this repo!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
@@ -207,8 +196,6 @@ I would like to thank [Microverse](https://www.microverse.org/) for giving me th
 
 
 ## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
 
 - **How is the ranking of the cryptocurrency exchanges determined?**
 
