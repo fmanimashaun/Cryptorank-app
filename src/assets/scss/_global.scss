@@ -1,7 +1,6 @@
 /* stylelint-disable at-rule-no-unknown */
 /* stylelint-disable csstree/validator */
-@use './fonts.scss' as font;
-@use '_colors.scss' as color;
+@use './_colors.scss' as color;
 
 /* Global styles
 ------------------------------------ */
@@ -14,22 +13,20 @@
 :root {
   /* Default font size */
   font-size: 16px;
+  --bs-body-bg: #{color.$primary-color} !important;
 }
 
 body {
   max-width: 100vw;
   margin: 0;
   padding: 0;
-  font-family: font.$primary-ff;
-  background-color: color.$off-white;
 }
 
-.container {
+.page-container {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-width: 375px;
   min-height: 100vh;
   margin-inline: auto;
 
