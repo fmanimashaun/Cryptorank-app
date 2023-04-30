@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { filterBySearch, closeSearchFilter } from 'features/exchanger/exchangerSlice';
 import {
   Container,
   Row,
@@ -11,7 +13,8 @@ import { FaSearch, FaMicrophone, FaArrowLeft } from 'react-icons/fa';
 import Style from 'assets/scss/header.module.scss';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-function Header() {
+const Header = () => {
+  const dispatch = useDispatch();
   const [showSearch, setShowSearch] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -41,6 +44,7 @@ function Header() {
 
   const handleSearchCloseClick = () => {
     setShowSearch(false);
+    dispatch(closeSearchFilter());
   };
 
   return (
@@ -71,6 +75,7 @@ function Header() {
                     type="text"
                     placeholder="Search"
                     className="me-2"
+                    onChange={(e) => dispatch(filterBySearch(e.target.value))}
                   />
                   <Button
                     className={Style.header__btn}
@@ -98,6 +103,6 @@ function Header() {
       </Container>
     </Container>
   );
-}
+};
 
 export default Header;
