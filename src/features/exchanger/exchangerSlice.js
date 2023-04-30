@@ -16,32 +16,55 @@ export const fetchExchangers = createAsyncThunk(
 );
 
 const initialState = {
-  loading: false,
+  isLoading: false,
   error: null,
   exchangerList: [],
+  filterExchange: [],
+  searchFilter: false,
 };
 
-const financialSlice = createSlice({
+const exchangerSlice = createSlice({
   name: 'exchanger',
   initialState,
-  reducers: {},
+  reducers: {
+    filterBySearch: (state, action) => ({
+      ...state,
+      filterExchange: state.exchangerList.filter(
+        (exchanger) => exchanger.name.toLowerCase().includes(action.payload.toLowerCase()),
+      ),
+      searchFilter: true,
+    }),
+    filterByCountry: (state, action) => ({
+      ...state,
+      filterExchange: state.exchangerList.filter(
+        (exchanger) => exchanger.country === action.payload,
+      ),
+      searchFilter: false,
+    }),
+    closeSearchFilter: (state) => ({
+      ...state,
+      searchFilter: false,
+    }),
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchExchangers.pending, (state) => ({
         ...state,
-        loading: true,
+        isLoading: true,
       }))
       .addCase(fetchExchangers.fulfilled, (state, action) => ({
         ...state,
-        stock: action.payload,
-        loading: false,
+        exchangerList: action.payload,
+        isLoading: false,
       }))
       .addCase(fetchExchangers.rejected, (state, action) => ({
         ...state,
         error: action.payload,
-        loading: false,
+        isLoading: false,
       }));
   },
 });
 
-export default financialSlice.reducer;
+export const { filterBySearch, filterByCountry, closeSearchFilter } = exchangerSlice.actions;
+
+export default exchangerSlice.reducer;
