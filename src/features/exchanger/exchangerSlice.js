@@ -18,9 +18,10 @@ export const fetchExchangers = createAsyncThunk(
 const initialState = {
   isLoading: false,
   error: null,
+  searchFilter: false,
+  noResult: false,
   exchangerList: [],
   filterExchange: [],
-  searchFilter: false,
 };
 
 const exchangerSlice = createSlice({
@@ -33,6 +34,7 @@ const exchangerSlice = createSlice({
         (exchanger) => exchanger.name.toLowerCase().includes(action.payload.toLowerCase()),
       ),
       searchFilter: true,
+      noResult: state.filterExchange.length === 0,
     }),
     filterByCountry: (state, action) => ({
       ...state,
