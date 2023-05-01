@@ -19,6 +19,7 @@ const ExchangerList = () => {
     exchangerList,
     filterExchange,
     searchFilter,
+    noResult,
   } = useSelector((state) => state.exchanger);
   const dispatch = useDispatch();
 
@@ -55,7 +56,8 @@ const ExchangerList = () => {
               <Row className="justify-content-between align-items-center pt-3 pb-3">
                 <Col>
                   <h3 className={Style.title}>
-                    {searchFilter ? 'Search Results' : title}
+                    {searchFilter && !noResult ? 'Search Results' : title}
+                    {noResult && 'No Search Result'}
                   </h3>
                 </Col>
                 <Col xs="auto" className={Style.select}>
