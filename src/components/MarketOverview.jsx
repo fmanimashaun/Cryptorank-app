@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Container, Row, Col } from 'react-bootstrap';
 import {
   Chart as ChartJS,
@@ -8,10 +9,12 @@ import {
 } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import Style from 'assets/scss/marketoverview.module.scss';
-import exchangerList from './data';
 
 const MarketOverview = () => {
+  const { exchangerList, isLoading } = useSelector((state) => state.exchanger);
+
   ChartJS.register(ArcElement, Tooltip, Legend);
+
   const exchanger = exchangerList
     .map((exchanger) => ({
       name: exchanger.name,
@@ -90,7 +93,8 @@ const MarketOverview = () => {
           </h2>
         </Col>
         <Col xs={12} md={6} className="my-3" style={{ width: 'fit-content' }}>
-          <Doughnut data={data} options={options} />
+          {isLoading && <p>waiting data...</p>}
+          {!isLoading && <Doughnut data={data} options={options} />}
         </Col>
       </Row>
     </Container>
