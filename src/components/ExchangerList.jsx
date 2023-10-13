@@ -1,96 +1,86 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  Container,
-  Row,
-  Col,
-  Form,
-} from 'react-bootstrap';
+import { useState, useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
+import Spinner from 'react-bootstrap/Spinner';
+import { Container, Row, Col } from 'react-bootstrap';
+import ExchangerCard from 'components/ExchangerCard';
+import CustomPagination from 'components/Pagination';
+import getItemsPerPage from 'utils/getItemsPerPage';
 import Style from 'assets/scss/exchangerList.module.scss';
-import {
-  fetchExchangers,
-  filterByCountry,
-} from 'features/exchanger/exchangerSlice';
 
 const ExchangerList = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [currentItems, setCurrentItems] = useState([]); // Add this state
   const {
-    isLoading,
-    error,
-    exchangerList,
-    filterExchange,
-    searchFilter,
-    noResult,
-  } = useSelector((state) => state.exchanger);
-  const dispatch = useDispatch();
+    isLoading, error, exchangerList, filterExchange,
+  } = useSelector(
+    (state) => state.exchanger,
+  );
 
-  const [selectedCountry, setSelectedCountry] = useState('All Countries');
+  const windowWidth = useRef(window.innerWidth);
+
+  const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage(windowWidth.current));
 
   useEffect(() => {
-    dispatch(fetchExchangers());
-  }, [dispatch]);
+    function handleResize() {
+      windowWidth.current = window.innerWidth;
+      setItemsPerPage(getItemsPerPage(windowWidth.current));
+    }
 
-  const country = [
-    ...new Set(exchangerList.map((exchanger) => exchanger.country)),
-  ];
+    window.addEventListener('resize', handleResize);
 
-  const handleChange = (e) => {
-    setSelectedCountry(e.target.value);
-    dispatch(filterByCountry(e.target.value));
-  };
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
-  const exchangers = filterExchange.length ? filterExchange : exchangerList;
+  const exchangers = filterExchange?.length ? filterExchange : exchangerList;
 
-  const title = selectedCountry === 'All Countries' ? 'All Countries' : selectedCountry;
+  useEffect(() => {
+    // Derived state
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const items = exchangers.slice(indexOfFirstItem, indexOfLastItem);
+    setCurrentItems(items); // Set the items using the state setter
+  }, [filterExchange, currentPage, exchangers, itemsPerPage]);
 
   return (
-    <>
-      {isLoading && <p>Loading...</p>}
-      {error && !isLoading && <p>{error}</p>}
-      {!isLoading && !error && !exchangerList.length && (
+    <Container className="px-0">
+      {isLoading && !error ? (
+        <Spinner
+          animation="border"
+          role="status"
+          variant="light"
+          className={Style.spinner}
+        >
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      ) : null}
+
+      {!isLoading && error ? <p>{error}</p> : null}
+
+      {!isLoading && !error && exchangers?.length === 0 ? (
         <p>No exchanger found</p>
-      )}
-      {!isLoading && !error && exchangerList.length && (
-        <>
-          <Container>
-            <Row className="justify-content-between align-items-center">
-              <Row className="justify-content-between align-items-center pt-3 pb-3">
-                <Col>
-                  <h3 className={Style.title}>
-                    {searchFilter && !noResult ? 'Search Results' : title}
-                    {noResult && 'No Search Result'}
-                  </h3>
-                </Col>
-                <Col xs="auto" className={Style.select}>
-                  <Form.Select
-                    aria-label="Select country"
-                    value={selectedCountry}
-                    onChange={handleChange}
-                    className={Style.select__form}
-                  >
-                    {searchFilter && <option value="">Select Country</option>}
-                    {!searchFilter && (
-                      <option value="All Countries">All Countries</option>
-                    )}
-                    {country.map((country) => (
-                      <option key={country}>{country}</option>
-                    ))}
-                  </Form.Select>
-                </Col>
-              </Row>
-            </Row>
-          </Container>
-          <Row className={Style.list}>
-            <Container>
-              <ul>
-                {exchangers.map((exchanger) => (
-                  <li key={exchanger.id}>{exchanger.name}</li>
-                ))}
-              </ul>
-            </Container>
-          </Row>
-        </>
-      )}
-    </>
+      ) : null}
+
+      {!isLoading && !error && exchangers?.length ? (
+        <Row>
+          {currentItems.map((exchanger) => (
+            <Col xs={12} md={6} lg={4} key={exchanger.id}>
+              <ExchangerCard exchanger={exchanger} />
+            </Col>
+          ))}
+        </Row>
+      ) : null}
+
+      {!isLoading && !error && exchangers?.length ? (
+        <CustomPagination
+          totalItems={exchangers.length}
+          itemsPerPage={itemsPerPage}
+          currentPage={currentPage}
+          onPageChange={setCurrentPage}
+        />
+      ) : null}
+    </Container>
   );
 };
 
