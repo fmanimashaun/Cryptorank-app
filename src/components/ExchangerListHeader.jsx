@@ -7,17 +7,17 @@ import Style from 'assets/scss/exchangerList.module.scss';
 import { filterByCountry } from 'features/exchanger/exchangerSlice';
 
 const ExchangerListHeader = () => {
-  const {
-    exchangerList,
-    searchFilter,
-    noResult,
-  } = useSelector((state) => state.exchanger);
+  const { exchangerList, searchFilter, noResult } = useSelector(
+    (state) => state.exchanger,
+  );
   const dispatch = useDispatch();
 
   const [selectedCountry, setSelectedCountry] = useState('All Countries');
 
   const country = [
-    ...new Set(exchangerList.map((exchanger) => exchanger.country).filter(Boolean)),
+    ...new Set(
+      exchangerList.map((exchanger) => exchanger.country).filter(Boolean),
+    ),
   ];
 
   const handleChange = (e) => {
@@ -28,9 +28,9 @@ const ExchangerListHeader = () => {
   const title = selectedCountry === 'All Countries' ? 'All Countries' : selectedCountry;
 
   return (
-    <Container>
-      <Row className="justify-content-between align-items-center">
-        <Row className="justify-content-between align-items-center pt-3 pb-3">
+    <Container fluid className={Style.heading}>
+      <Container className="px-0">
+        <Row className="justify-content-between align-items-center py-1">
           <Col>
             <h3 className={Style.title}>
               {searchFilter && !noResult ? 'Search Results' : title}
@@ -54,7 +54,7 @@ const ExchangerListHeader = () => {
             </Form.Select>
           </Col>
         </Row>
-      </Row>
+      </Container>
     </Container>
   );
 };

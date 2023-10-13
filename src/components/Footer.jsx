@@ -2,7 +2,7 @@ import { Container } from 'react-bootstrap';
 import Style from 'assets/scss/footer.module.scss';
 
 const Footer = () => (
-  <Container fluid as="footer" className={`text-light py-3 ${Style.footer}`}>
+  <Container fluid as="footer" className={`text-light py-1 ${Style.footer}`}>
     <p className="mb-0 text-center fw-bold">
       Made with ❤️ by
       {' '}
