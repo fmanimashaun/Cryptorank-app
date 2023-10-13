@@ -25,7 +25,11 @@
 }
 
 .list {
-  background-color: color.$primary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .spinner {

@@ -44,7 +44,7 @@ const ExchangerList = () => {
   }, [filterExchange, currentPage, exchangers, itemsPerPage]);
 
   return (
-    <Container className="px-0">
+    <Container className={`px-0 ${Style.list}`}>
       {isLoading && !error ? (
         <Spinner
           animation="border"
@@ -63,7 +63,7 @@ const ExchangerList = () => {
       ) : null}
 
       {!isLoading && !error && exchangers?.length ? (
-        <Row>
+        <Row className="g-3">
           {currentItems.map((exchanger) => (
             <Col xs={12} md={6} lg={4} key={exchanger.id}>
               <ExchangerCard exchanger={exchanger} />
