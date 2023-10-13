@@ -46,6 +46,7 @@ const exchangerSlice = createSlice({
     closeSearchFilter: (state) => ({
       ...state,
       searchFilter: false,
+      filterExchange: state.exchangerList,
     }),
   },
   extraReducers: (builder) => {
