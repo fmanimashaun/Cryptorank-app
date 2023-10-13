@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { filterBySearch, closeSearchFilter } from 'features/exchanger/exchangerSlice';
 import {
-  Container,
-  Row,
-  Col,
-  Form,
-  Button,
+  filterBySearch,
+  closeSearchFilter,
+} from 'features/exchanger/exchangerSlice';
+import {
+  Container, Row, Col, Form, Button,
 } from 'react-bootstrap';
 import LOGO from 'assets/images/logo.png';
 import { FaSearch, FaMicrophone, FaArrowLeft } from 'react-icons/fa';
