@@ -1,4 +1,4 @@
-const exchangerList = [
+const exchangerData = [
   {
     id: 'gdax',
     name: 'Coinbase Exchange',
@@ -1524,4 +1524,4 @@ const exchangerList = [
   },
 ];
 
-export default exchangerList;
+export default exchangerData;
