@@ -16,10 +16,6 @@
   --bs-body-bg: #{color.$primary-color} !important;
 }
 
-html {
-  background-color: black;
-}
-
 body {
   width: 100vw;
   margin: 0;
@@ -40,7 +36,6 @@ body {
 
   & > main {
     margin-block: 0 auto;
-    background-color: color.$accent-color-2;
   }
 
   & > :first-child:not(main) {
