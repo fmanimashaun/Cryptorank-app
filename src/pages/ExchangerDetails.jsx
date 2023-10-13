@@ -9,8 +9,6 @@ const ExchangerDetails = () => {
   const location = useLocation();
   const exchangeData = location.state;
 
-  console.log(exchangeData);
-
   if (!exchangeData) {
     return <p>No exchange data provided.</p>;
   }
