@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 import { PaginationControl } from 'react-bootstrap-pagination-control';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -16,9 +17,16 @@ const ExchangerList = () => {
     (state) => state.exchanger,
   );
 
+  const navigate = useNavigate();
+
   const windowWidth = useRef(window.innerWidth);
 
   const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage(windowWidth.current));
+
+  const showDetails = (id) => {
+    const itemClick = currentItems.filter((exchange) => exchange.id === id);
+    navigate('/details', { state: itemClick[0] });
+  };
 
   useEffect(() => {
     function handleResize() {
@@ -66,7 +74,7 @@ const ExchangerList = () => {
         <Row className="g-3">
           {currentItems.map((exchanger) => (
             <Col xs={12} md={6} lg={4} key={exchanger.id}>
-              <ExchangerCard exchanger={exchanger} />
+              <ExchangerCard exchanger={exchanger} showDetails={showDetails} />
             </Col>
           ))}
         </Row>
