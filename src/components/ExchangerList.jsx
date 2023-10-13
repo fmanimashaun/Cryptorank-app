@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import Spinner from 'react-bootstrap/Spinner';
+import { PaginationControl } from 'react-bootstrap-pagination-control';
 import { Container, Row, Col } from 'react-bootstrap';
 import ExchangerCard from 'components/ExchangerCard';
-import CustomPagination from 'components/Pagination';
 import getItemsPerPage from 'utils/getItemsPerPage';
 import Style from 'assets/scss/exchangerList.module.scss';
 
@@ -73,11 +73,15 @@ const ExchangerList = () => {
       ) : null}
 
       {!isLoading && !error && exchangers?.length ? (
-        <CustomPagination
-          totalItems={exchangers.length}
-          itemsPerPage={itemsPerPage}
-          currentPage={currentPage}
-          onPageChange={setCurrentPage}
+        <PaginationControl
+          page={currentPage}
+          between={3}
+          total={exchangers?.length}
+          limit={itemsPerPage}
+          changePage={(page) => {
+            setCurrentPage(page);
+          }}
+          ellipsis={1}
         />
       ) : null}
     </Container>
