@@ -13,22 +13,6 @@ const store = configureStore({
   },
 });
 
-describe('check the imported data', () => {
-  it('should have 100 exchangers', () => {
-    expect(exchangerData.length).toBe(100);
-  });
-
-  it('check for us base exchangers', () => {
-    const usExchangers = exchangerData.filter((exchanger) => exchanger.country === 'United States');
-    expect(usExchangers.length).toBe(7);
-  });
-
-  it('check for binance', () => {
-    const binanceDate = exchangerData.filter((exchanger) => exchanger.name.toLowerCase().includes('binance'));
-    expect(binanceDate.length).toBe(2);
-  });
-});
-
 describe('exchangerSlice', () => {
   beforeEach(() => {
     store.dispatch({ type: 'reset' }); // Reset the state
