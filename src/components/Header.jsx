@@ -24,9 +24,9 @@ const Header = () => {
     const pathName = location.pathname;
     if (pathName === '/') {
       setShowBackButton(false);
-    } else if (pathName === '/:id') {
+    } else if (pathName === '/details') {
       setShowBackButton(true);
-      setPageTitle('Exchanger Details');
+      setPageTitle(`${location.state.name} Details`);
     } else {
       setShowBackButton(true);
       setPageTitle('ERROR 🚫');
