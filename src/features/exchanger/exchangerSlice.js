@@ -28,25 +28,32 @@ const exchangerSlice = createSlice({
   name: 'exchanger',
   initialState,
   reducers: {
-    filterBySearch: (state, action) => ({
-      ...state,
-      filterExchange: state.exchangerList.filter(
+    filterBySearch: (state, action) => {
+      const filteredResult = state.exchangerList.filter(
         (exchanger) => exchanger.name.toLowerCase().includes(action.payload.toLowerCase()),
-      ),
-      searchFilter: true,
-      noResult: state.filterExchange.length === 0,
-    }),
-    filterByCountry: (state, action) => ({
-      ...state,
-      filterExchange: state.exchangerList.filter(
+      );
+      return ({
+        ...state,
+        filterExchange: filteredResult,
+        searchFilter: true,
+        noResult: filteredResult.length === 0,
+      });
+    },
+    filterByCountry: (state, action) => {
+      const filteredResult = state.exchangerList.filter(
         (exchanger) => exchanger.country === action.payload,
-      ),
-      searchFilter: false,
-    }),
+      );
+      return ({
+        ...state,
+        filterExchange: filteredResult,
+        searchFilter: false,
+        noResult: filteredResult.length === 0,
+      });
+    },
     closeSearchFilter: (state) => ({
       ...state,
       searchFilter: false,
-      filterExchange: state.exchangerList,
+      filterExchange: [],
     }),
   },
   extraReducers: (builder) => {
