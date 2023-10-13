@@ -54,14 +54,16 @@ const ExchangerList = () => {
   return (
     <Container className={`px-0 ${Style.list}`}>
       {isLoading && !error ? (
-        <Spinner
-          animation="border"
-          role="status"
-          variant="light"
-          className={Style.spinner}
-        >
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        <div className="d-flex justify-content-center align-items-center">
+          <Spinner
+            animation="border"
+            role="status"
+            variant="light"
+            className={Style.spinner}
+          >
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
       ) : null}
 
       {!isLoading && error ? <p>{error}</p> : null}
