@@ -12,7 +12,7 @@ const ExchangerList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentItems, setCurrentItems] = useState([]); // Add this state
   const {
-    isLoading, error, exchangerList, filterExchange,
+    isLoading, error, exchangerList, filterExchange, noResult, searchFilter,
   } = useSelector(
     (state) => state.exchanger,
   );
@@ -41,7 +41,8 @@ const ExchangerList = () => {
     };
   }, []);
 
-  const exchangers = filterExchange?.length ? filterExchange : exchangerList;
+  const exchangers = (filterExchange?.length || noResult) && searchFilter
+    ? filterExchange : exchangerList;
 
   useEffect(() => {
     // Derived state

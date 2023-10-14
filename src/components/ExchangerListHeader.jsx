@@ -26,6 +26,17 @@ const ExchangerListHeader = () => {
   };
 
   const title = selectedCountry === 'All Countries' ? 'All Countries' : selectedCountry;
+  const isSearchResults = searchFilter && !noResult;
+  const isNoSearchResult = searchFilter && noResult;
+  let displayTitle;
+
+  if (isSearchResults) {
+    displayTitle = 'Search Results';
+  } else if (isNoSearchResult) {
+    displayTitle = 'No Search Result';
+  } else {
+    displayTitle = title;
+  }
 
   return (
     <Container fluid className={Style.heading}>
@@ -33,8 +44,7 @@ const ExchangerListHeader = () => {
         <Row className="justify-content-between align-items-center py-1">
           <Col>
             <h3 className={Style.title}>
-              {searchFilter && !noResult ? 'Search Results' : title}
-              {noResult && 'No Search Result'}
+              {displayTitle}
             </h3>
           </Col>
           <Col xs="auto" className={Style.select}>

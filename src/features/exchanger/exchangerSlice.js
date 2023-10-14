@@ -32,6 +32,7 @@ const exchangerSlice = createSlice({
       const filteredResult = state.exchangerList.filter(
         (exchanger) => exchanger.name.toLowerCase().includes(action.payload.toLowerCase()),
       );
+
       return ({
         ...state,
         filterExchange: filteredResult,
@@ -47,7 +48,7 @@ const exchangerSlice = createSlice({
         ...state,
         filterExchange: filteredResult,
         searchFilter: false,
-        noResult: filteredResult.length === 0,
+        noResult: action.payload === 'All Countries' ? false : filteredResult.length === 0,
       });
     },
     closeSearchFilter: (state) => ({
