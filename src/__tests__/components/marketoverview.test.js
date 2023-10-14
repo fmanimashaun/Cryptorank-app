@@ -8,6 +8,17 @@ import exchangerData from 'data';
 
 const mockStore = configureMockStore();
 const exchangerMockData = exchangerData;
+
+beforeAll(() => {
+  // Suppress console.error in this test file
+  jest.spyOn(console, 'error').mockImplementation(() => {});
+});
+
+afterAll(() => {
+  // Restore the original console.error method after all tests in this file
+  console.error.mockRestore();
+});
+
 describe('MarketOverview Component', () => {
   let store;
 
