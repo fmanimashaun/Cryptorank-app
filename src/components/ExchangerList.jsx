@@ -56,6 +56,10 @@ const ExchangerList = () => {
   }
 
   useEffect(() => {
+    setCurrentPage(1);
+  }, [exchangers]);
+
+  useEffect(() => {
     // Derived state
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
