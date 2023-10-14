@@ -89,9 +89,9 @@ const ExchangerList = () => {
       ) : null}
 
       {!isLoading && !error && exchangers?.length ? (
-        <Row className="g-3">
+        <Row className={`g-3 ${Style.wrapper}`}>
           {currentItems.map((exchanger) => (
-            <Col xs={12} md={6} lg={4} key={exchanger.id}>
+            <Col xs={6} key={exchanger.id}>
               <ExchangerCard exchanger={exchanger} showDetails={showDetails} />
             </Col>
           ))}

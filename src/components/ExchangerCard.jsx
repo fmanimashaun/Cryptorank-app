@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
 import Style from 'assets/scss/exchangercard.module.scss';
+import { BsArrowRightCircle } from 'react-icons/bs';
 
 const ExchangerCard = ({ exchanger, showDetails }) => (
   <Card className={Style.card}>
@@ -11,14 +12,16 @@ const ExchangerCard = ({ exchanger, showDetails }) => (
       alt={exchanger.name}
     />
     <Card.Body className={Style.body}>
-      <Card.Title>{exchanger.name}</Card.Title>
-      <Card.Text className={Style.text}>{`Ranking: ${exchanger.trust_score_rank}`}</Card.Text>
+      <div className={Style.wrapper}>
+        <Card.Title>{exchanger.name}</Card.Title>
+        <Card.Text className={Style.text}>{exchanger.trust_score_rank}</Card.Text>
+      </div>
+
       <Button
-        variant="primary"
         className={Style.btn}
         onClick={() => showDetails(exchanger.id)}
       >
-        See Details
+        <BsArrowRightCircle className={Style.icon} />
       </Button>
     </Card.Body>
   </Card>

@@ -7,7 +7,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem;
+  padding: 2rem 0.5rem;
+  background: transparent;
+  border: none;
 }
 
 .image {
@@ -18,9 +20,43 @@
 }
 
 .body {
+  display: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-end;
   padding: 0;
+
+  & * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrapper {
+    position: absolute;
+    bottom: 10px;
+
+    p {
+      text-align: right;
+    }
+  }
+}
+
+.btn {
+  position: absolute;
+  top: 10px;
+  background: transparent;
+  border: none;
+  padding: 0;
+
+  &:hover {
+    outline: none;
+    background: transparent;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+  }
 }
