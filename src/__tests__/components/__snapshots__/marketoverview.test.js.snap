@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MarketOverview Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="overview container-fluid"
+  >
+    <div
+      class="align-items-center justify-content-center row"
+    >
+      <div
+        class="d-flex my-3 justify-content-center col-md-6 col-12"
+      >
+        <h2
+          class="text-center text-md-start fw-bold header"
+        >
+          Market Snapshot:
+          <br />
+          <span>
+            BTC Trading Volume in Last 24 Hours
+          </span>
+        </h2>
+      </div>
+      <div
+        class="my-3 col-md-6 col-12"
+      >
+        <canvas
+          height="150"
+          role="img"
+          width="300"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

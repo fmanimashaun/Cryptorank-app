@@ -1,0 +1,56 @@
+/* stylelint-disable at-rule-no-unknown */
+/* stylelint-disable csstree/validator */
+/* stylelint-disable rule-empty-line-before */
+@use "./_colors.scss" as color;
+
+.heading {
+  background-color: color.$tertiary-color;
+  padding-block: 1rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  color: color.$white;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.select {
+  width: fit-content;
+  &__form {
+    font-size: 0.75rem;
+    font-weight: 600;
+    inline-size: 150px;
+    padding: 0.5rem;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  .wrapper {
+    & > *:nth-child(1),
+    & > *:nth-child(4),
+    & > *:nth-child(5) {
+      background-color: color.$accent-color-1;
+    }
+
+    & > *:nth-child(2),
+    & > *:nth-child(3),
+    & > *:nth-child(6) {
+      background-color: color.$accent-color-2;
+    }
+  }
+
+  ul {
+    align-self: center;
+  }
+}
+
+.spinner {
+  width: 100px;
+  height: 100px;
+}

@@ -52,18 +52,22 @@
 
 ### Key Features <a name="key-features"></a>
 
-- [ ] View a list of all cryptocurrency exchanges with their respective rankings in the global cryptocurrency market.
-- [ ] Click on an exchange to view more detailed information about it.
-- [ ] The app enables users to search for specific cryptocurrency exchanges easily.
-- [ ] View real-time exchange data using the app's integration with the CoinGecko API.
-- [ ] User-friendly interface and responsive design for desktop and mobile devices.
+- [x] View a list of all cryptocurrency exchanges with their respective rankings in the global cryptocurrency market.
+- [x] Click on an exchange to view more detailed information about it.
+- [x] The app enables users to search for specific cryptocurrency exchanges easily.
+- [x] View real-time exchange data using the app's integration with the CoinGecko API.
+- [x] User-friendly interface and responsive design for desktop and mobile devices.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- [Live Demo Link](https://fmanimashaun.github.io/Cryptorank-app/)
+- [Live Demo Link](https://fmanimashaun.github.io/cryptorank-app/)
+
+<p align="center">
+  <img width="1200" src="screenshots/demo.png">
+</P>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

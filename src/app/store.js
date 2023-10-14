@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from 'features/counter/counterSlice';
-import financialReducer from 'features/financial/finanialSlice';
+import exchangerReducer from 'features/exchanger/exchangerSlice';
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    financial: financialReducer,
+    exchanger: exchangerReducer,
   },
 });
 

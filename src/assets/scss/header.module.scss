@@ -1,0 +1,25 @@
+/* stylelint-disable at-rule-no-unknown */
+/* stylelint-disable csstree/validator */
+@use './_colors.scss' as color;
+
+.header {
+  background-color: color.$secondary-color;
+
+  &__logo {
+    display: block;
+    width: 40px;
+    height: auto;
+  }
+
+  &__brand {
+    @media only screen and (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  &__btn {
+    background-color: color.$primary-color;
+    border: none;
+    width: fit-content;
+  }
+}

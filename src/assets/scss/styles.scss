@@ -1,4 +1,7 @@
 /* stylelint-disable at-rule-no-unknown */
 /* stylelint-disable csstree/validator */
-@use './global.scss';
+@use './_reset.scss';
+@use './_global.scss';
 @use './_colors.scss';
+
+@import "~bootstrap/scss/bootstrap";

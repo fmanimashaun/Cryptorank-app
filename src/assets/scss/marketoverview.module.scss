@@ -1,0 +1,17 @@
+/* stylelint-disable at-rule-no-unknown */
+/* stylelint-disable csstree/validator */
+@use './_colors.scss' as color;
+
+.overview {
+  background-color: color.$primary-color;
+}
+
+.header {
+  color: white;
+  max-inline-size: 350px;
+}
+
+.spinner {
+  width: 100px;
+  height: 100px;
+}

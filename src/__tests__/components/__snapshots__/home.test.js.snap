@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshots 1`] = `
+Array [
+  <div
+    className="overview container-fluid"
+  >
+    <div
+      className="align-items-center justify-content-center row"
+    >
+      <div
+        className="d-flex my-3 justify-content-center col-md-6 col-12"
+      >
+        <h2
+          className="text-center text-md-start fw-bold header"
+        >
+          Market Snapshot:
+          <br />
+          <span>
+            BTC Trading Volume in Last 24 Hours
+          </span>
+        </h2>
+      </div>
+      <div
+        className="my-3 col-md-6 col-12"
+        style={
+          Object {
+            "width": "fit-content",
+          }
+        }
+      >
+        <canvas
+          height={150}
+          role="img"
+          width={300}
+        />
+      </div>
+    </div>
+  </div>,
+  <div
+    className="heading container-fluid"
+  >
+    <div
+      className="px-0 container"
+    >
+      <div
+        className="justify-content-between align-items-center py-1 row"
+      >
+        <div
+          className="col"
+        >
+          <h3
+            className="title"
+          >
+            All Countries
+          </h3>
+        </div>
+        <div
+          className="select col-auto"
+        >
+          <select
+            aria-label="Select country"
+            className="select__form form-select"
+            onChange={[Function]}
+            value="All Countries"
+          >
+            <option
+              value="All Countries"
+            >
+              All Countries
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="px-0 list container"
+  >
+    <p>
+      No exchanger found
+    </p>
+  </div>,
+]
+`;

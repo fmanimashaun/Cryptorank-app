@@ -1,11 +1,10 @@
 import { rest } from 'msw';
+import exchangerList from 'data';
 
 const handlers = [
-  rest.get('', (req, res, ctx) => res(
+  rest.get('https://api.coingecko.com/api/v3/exchanges', (req, res, ctx) => res(
     ctx.status(200),
-    ctx.json([
-      {},
-    ]),
+    ctx.json([...exchangerList]),
   )),
 ];
 
