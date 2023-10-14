@@ -63,7 +63,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- [Live Demo Link](https://fmanimashaun.github.io/Cryptorank-app/)
+- [Live Demo Link](https://fmanimashaun.github.io/cryptorank-app/)
 
 <p align="center">
   <img width="1200" src="screenshots/demo.png">
