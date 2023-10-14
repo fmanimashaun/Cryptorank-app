@@ -41,8 +41,15 @@ const ExchangerList = () => {
     };
   }, []);
 
-  const exchangers = (filterExchange?.length || noResult) && searchFilter
-    ? filterExchange : exchangerList;
+  let exchangers;
+
+  if (filterExchange?.length > 0 && !noResult) {
+    exchangers = filterExchange;
+  } else if (searchFilter && noResult) {
+    exchangers = filterExchange;
+  } else {
+    exchangers = exchangerList;
+  }
 
   useEffect(() => {
     // Derived state

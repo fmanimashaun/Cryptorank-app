@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   Container, Row, Col, Form,
@@ -13,6 +13,7 @@ const ExchangerListHeader = () => {
   const dispatch = useDispatch();
 
   const [selectedCountry, setSelectedCountry] = useState('All Countries');
+  const selectRef = useRef(null);
 
   const country = [
     ...new Set(
@@ -29,6 +30,12 @@ const ExchangerListHeader = () => {
   const isSearchResults = searchFilter && !noResult;
   const isNoSearchResult = searchFilter && noResult;
   let displayTitle;
+
+  useEffect(() => {
+    if (searchFilter && selectRef.current) {
+      selectRef.current.value = '';
+    }
+  }, [searchFilter]);
 
   if (isSearchResults) {
     displayTitle = 'Search Results';
@@ -53,6 +60,7 @@ const ExchangerListHeader = () => {
               value={selectedCountry}
               onChange={handleChange}
               className={Style.select__form}
+              ref={selectRef}
             >
               {searchFilter && <option value="">Select Country</option>}
               {!searchFilter && (
