@@ -1,6 +1,6 @@
 /* stylelint-disable at-rule-no-unknown */
 /* stylelint-disable csstree/validator */
-@use './_colors.scss' as color;
+@use "./_colors.scss" as color;
 
 /* Global styles
 ------------------------------------ */
@@ -13,6 +13,8 @@
 :root {
   /* Default font size */
   font-size: 16px;
+
+  /* custom property */
   --bs-body-bg: #{color.$primary-color} !important;
 }
 

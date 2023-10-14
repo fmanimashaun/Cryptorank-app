@@ -1,5 +1,6 @@
 /* stylelint-disable at-rule-no-unknown */
 /* stylelint-disable csstree/validator */
+/* stylelint-disable rule-empty-line-before */
 @use './_colors.scss' as color;
 
 .heading {
@@ -14,7 +15,6 @@
   font-weight: 600;
 }
 
-/* Add an empty line above */
 .select {
   width: fit-content;
   &__form {
