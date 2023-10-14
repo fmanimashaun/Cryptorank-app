@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/cryptorank-app/static/css/main.777b2bee.css",
-    "main.js": "/cryptorank-app/static/js/main.6a780401.js",
+    "main.js": "/cryptorank-app/static/js/main.ddad9951.js",
     "static/media/logo.png": "/cryptorank-app/static/media/logo.0b35bd40c2428c7237f3.png",
     "index.html": "/cryptorank-app/index.html",
     "main.777b2bee.css.map": "/cryptorank-app/static/css/main.777b2bee.css.map",
-    "main.6a780401.js.map": "/cryptorank-app/static/js/main.6a780401.js.map"
+    "main.ddad9951.js.map": "/cryptorank-app/static/js/main.ddad9951.js.map"
   },
   "entrypoints": [
     "static/css/main.777b2bee.css",
-    "static/js/main.6a780401.js"
+    "static/js/main.ddad9951.js"
   ]
 }
