@@ -16,7 +16,7 @@ describe('ExchangerCard Component', () => {
       <ExchangerCard exchanger={mockExchanger} showDetails={() => {}} />,
     );
     expect(getByText('Test Exchanger')).toBeInTheDocument();
-    expect(getByText('Ranking: 1')).toBeInTheDocument();
+    expect(getByText('1')).toBeInTheDocument();
   });
 
   it('displays the correct image', () => {
@@ -28,11 +28,11 @@ describe('ExchangerCard Component', () => {
 
   it('calls showDetails with correct id on button click', () => {
     const mockShowDetails = jest.fn();
-    const { getByText } = render(
+    const { getByTestId } = render(
       <ExchangerCard exchanger={mockExchanger} showDetails={mockShowDetails} />,
     );
 
-    fireEvent.click(getByText('See Details'));
+    fireEvent.click(getByTestId('exchanger-button'));
     expect(mockShowDetails).toHaveBeenCalledTimes(1);
     expect(mockShowDetails).toHaveBeenCalledWith('test-id');
   });
@@ -45,13 +45,13 @@ describe('ExchangerCard Component', () => {
   });
 
   it('renders the correct content', () => {
-    const { getByText, getByAltText } = render(
+    const { getByText, getByAltText, getByTestId } = render(
       <ExchangerCard exchanger={mockExchanger} showDetails={() => {}} />,
     );
 
     expect(getByAltText('Test Exchanger')).toHaveAttribute('src', 'test-image-url');
     expect(getByText('Test Exchanger')).toBeInTheDocument();
-    expect(getByText('Ranking: 1')).toBeInTheDocument();
-    expect(getByText('See Details')).toBeInTheDocument();
+    expect(getByText('1')).toBeInTheDocument(); // "Ranking: 1" was changed to "1"
+    expect(getByTestId('exchanger-button')).toBeInTheDocument();
   });
 });

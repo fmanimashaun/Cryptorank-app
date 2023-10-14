@@ -103,7 +103,7 @@ describe('ExchangerList component', () => {
       </Provider>,
     );
 
-    const exchangerCardButtons = screen.getAllByRole('button', { name: /See Details/i });
+    const exchangerCardButtons = screen.getAllByTestId('exchanger-button');
     expect(exchangerCardButtons.length).toBe(6);
   });
 
@@ -123,7 +123,7 @@ describe('ExchangerList component', () => {
       </Provider>,
     );
 
-    const exchangerCardButtons = screen.getAllByRole('button', { name: /See Details/i });
+    const exchangerCardButtons = screen.getAllByTestId('exchanger-button');
     expect(exchangerCardButtons.length).toBe(3);
   });
 
@@ -144,7 +144,7 @@ describe('ExchangerList component', () => {
       </Provider>,
     );
 
-    const exchangerCardButtons = screen.getAllByRole('button', { name: /See Details/i });
+    const exchangerCardButtons = screen.getAllByTestId('exchanger-button');
     expect(exchangerCardButtons.length).toBe(3);
   });
 
@@ -166,7 +166,7 @@ describe('ExchangerList component', () => {
       </Provider>,
     );
 
-    const exchangerCardButtons = screen.getAllByRole('button', { name: /See Details/i });
+    const exchangerCardButtons = screen.getAllByTestId('exchanger-button');
     expect(exchangerCardButtons.length).toBe(3);
   });
   it('navigates to details page when clicking on an exchanger card', () => {
@@ -183,7 +183,7 @@ describe('ExchangerList component', () => {
       </Provider>,
     );
 
-    const exchangerCardButtons = screen.getAllByRole('button', { name: /See Details/i });
+    const exchangerCardButtons = screen.getAllByTestId('exchanger-button');
     fireEvent.click(exchangerCardButtons[0]);
 
     expect(navigateMock).toHaveBeenCalledWith('/details', { state: exchangerMockData[0] });

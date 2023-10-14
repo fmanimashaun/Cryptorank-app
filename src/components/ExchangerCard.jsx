@@ -14,10 +14,14 @@ const ExchangerCard = ({ exchanger, showDetails }) => (
     <Card.Body className={Style.body}>
       <div className={Style.wrapper}>
         <Card.Title>{exchanger.name}</Card.Title>
-        <Card.Text className={Style.text}>{exchanger.trust_score_rank}</Card.Text>
+        <Card.Text className={Style.text}>
+          {exchanger.trust_score_rank}
+        </Card.Text>
       </div>
 
       <Button
+        data-testid="exchanger-button"
+        role="button"
         className={Style.btn}
         onClick={() => showDetails(exchanger.id)}
       >
