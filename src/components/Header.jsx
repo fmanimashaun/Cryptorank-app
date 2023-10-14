@@ -47,7 +47,7 @@ const Header = () => {
   };
 
   return (
-    <Container fluid as="header" className={`text-light py-3 ${Style.header}`}>
+    <Container fluid as="header" className={`text-light py-2 ${Style.header}`}>
       <Container>
         {!showBackButton ? (
           <Row className="align-items-center">
