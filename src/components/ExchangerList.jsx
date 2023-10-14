@@ -12,7 +12,7 @@ const ExchangerList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentItems, setCurrentItems] = useState([]); // Add this state
   const {
-    isLoading, error, exchangerList, filterExchange, noResult, searchFilter,
+    isLoading, error, exchangerList, filterExchange, noResult, searchFilter, selectedCountry,
   } = useSelector(
     (state) => state.exchanger,
   );
@@ -47,6 +47,10 @@ const ExchangerList = () => {
     exchangers = filterExchange;
   } else if (searchFilter && noResult) {
     exchangers = filterExchange;
+  } else if (selectedCountry !== 'All Countries') {
+    exchangers = filterExchange;
+  } else if (!searchFilter && selectedCountry === '') {
+    exchangers = exchangerList;
   } else {
     exchangers = exchangerList;
   }

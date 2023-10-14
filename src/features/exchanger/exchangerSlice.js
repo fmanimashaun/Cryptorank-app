@@ -19,6 +19,7 @@ const initialState = {
   isLoading: false,
   error: null,
   searchFilter: false,
+  selectedCountry: 'All Countries',
   noResult: false,
   exchangerList: [],
   filterExchange: [],
@@ -38,6 +39,7 @@ const exchangerSlice = createSlice({
         filterExchange: filteredResult,
         searchFilter: true,
         noResult: filteredResult.length === 0,
+        selectedCountry: '',
       });
     },
     filterByCountry: (state, action) => {
@@ -49,13 +51,20 @@ const exchangerSlice = createSlice({
         filterExchange: filteredResult,
         searchFilter: false,
         noResult: action.payload === 'All Countries' ? false : filteredResult.length === 0,
+        selectedCountry: action.payload,
       });
     },
-    closeSearchFilter: (state) => ({
-      ...state,
-      searchFilter: false,
-      filterExchange: [],
-    }),
+    closeSearchFilter: (state) => {
+      const filteredResult = state.exchangerList.filter(
+        (exchanger) => exchanger.country === state.selectedCountry,
+      );
+      return ({
+        ...state,
+        searchFilter: false,
+        filterExchange: filteredResult,
+        selectedCountry: 'All Countries',
+      });
+    },
   },
   extraReducers: (builder) => {
     builder

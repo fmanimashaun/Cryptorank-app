@@ -27,6 +27,7 @@ describe('exchangerSlice', () => {
         noResult: false,
         exchangerList: [],
         filterExchange: [],
+        selectedCountry: 'All Countries',
       });
     });
 
@@ -61,7 +62,6 @@ describe('exchangerSlice', () => {
       store.dispatch(closeSearchFilter());
       const state = store.getState().exchanger;
       expect(state.searchFilter).toBe(false);
-      expect(state.filterExchange.length).toEqual(0);
     });
   });
 

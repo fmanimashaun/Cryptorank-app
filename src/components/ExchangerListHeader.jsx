@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   Container, Row, Col, Form,
@@ -7,12 +7,10 @@ import Style from 'assets/scss/exchangerList.module.scss';
 import { filterByCountry } from 'features/exchanger/exchangerSlice';
 
 const ExchangerListHeader = () => {
-  const { exchangerList, searchFilter, noResult } = useSelector(
-    (state) => state.exchanger,
-  );
+  const {
+    exchangerList, searchFilter, noResult, selectedCountry,
+  } = useSelector((state) => state.exchanger);
   const dispatch = useDispatch();
-
-  const [selectedCountry, setSelectedCountry] = useState('All Countries');
   const selectRef = useRef(null);
 
   const country = [
@@ -22,7 +20,6 @@ const ExchangerListHeader = () => {
   ];
 
   const handleChange = (e) => {
-    setSelectedCountry(e.target.value);
     dispatch(filterByCountry(e.target.value));
   };
 
@@ -34,6 +31,8 @@ const ExchangerListHeader = () => {
   useEffect(() => {
     if (searchFilter && selectRef.current) {
       selectRef.current.value = '';
+    } else if (!searchFilter && selectRef.current) {
+      selectRef.current.value = 'All Countries';
     }
   }, [searchFilter]);
 
@@ -50,9 +49,7 @@ const ExchangerListHeader = () => {
       <Container className="px-0">
         <Row className="justify-content-between align-items-center py-1">
           <Col>
-            <h3 className={Style.title}>
-              {displayTitle}
-            </h3>
+            <h3 className={Style.title}>{displayTitle}</h3>
           </Col>
           <Col xs="auto" className={Style.select}>
             <Form.Select

@@ -26,6 +26,7 @@ describe('ExchangerList component', () => {
         filterExchange: [],
         noResult: false,
         searchFilter: false,
+        selectedCountry: 'All Countries',
       },
     });
 
@@ -89,25 +90,99 @@ describe('ExchangerList component', () => {
   });
 
   it('renders exchanger cards when exchangers are present', () => {
+    store = mockStore({
+      exchanger: {
+        ...store.getState().exchanger,
+        exchangerList: exchangerMockData,
+      },
+    });
+
     render(
       <Provider store={store}>
         <ExchangerList />
       </Provider>,
     );
 
-    // Use a more generic role like "button" or "link" for selection
     const exchangerCardButtons = screen.getAllByRole('button', { name: /See Details/i });
     expect(exchangerCardButtons.length).toBe(6);
   });
 
-  it('navigates to details page when clicking on an exchanger card', () => {
+  it('renders exchanger cards when filterExchange are present', () => {
+    store = mockStore({
+      exchanger: {
+        ...store.getState().exchanger,
+        exchangerList: exchangerMockData,
+        filterExchange: exchangerMockData.slice(0, 3),
+        selectedCountry: 'United States',
+      },
+    });
+
     render(
       <Provider store={store}>
         <ExchangerList />
       </Provider>,
     );
 
-    // Use a more generic role like "button" or "link" for selection
+    const exchangerCardButtons = screen.getAllByRole('button', { name: /See Details/i });
+    expect(exchangerCardButtons.length).toBe(3);
+  });
+
+  it('renders exchanger cards when search is true and there result', () => {
+    store = mockStore({
+      exchanger: {
+        ...store.getState().exchanger,
+        exchangerList: exchangerMockData,
+        filterExchange: exchangerMockData.slice(0, 3),
+        searchFilter: true,
+        noResult: true,
+      },
+    });
+
+    render(
+      <Provider store={store}>
+        <ExchangerList />
+      </Provider>,
+    );
+
+    const exchangerCardButtons = screen.getAllByRole('button', { name: /See Details/i });
+    expect(exchangerCardButtons.length).toBe(3);
+  });
+
+  it('when search is false and selected country is empty string', () => {
+    store = mockStore({
+      exchanger: {
+        ...store.getState().exchanger,
+        exchangerList: exchangerMockData,
+        filterExchange: exchangerMockData.slice(0, 3),
+        searchFilter: false,
+        noResult: false,
+        selectedCountry: '',
+      },
+    });
+
+    render(
+      <Provider store={store}>
+        <ExchangerList />
+      </Provider>,
+    );
+
+    const exchangerCardButtons = screen.getAllByRole('button', { name: /See Details/i });
+    expect(exchangerCardButtons.length).toBe(3);
+  });
+  it('navigates to details page when clicking on an exchanger card', () => {
+    store = mockStore({
+      exchanger: {
+        ...store.getState().exchanger,
+        exchangerList: exchangerMockData,
+      },
+    });
+
+    render(
+      <Provider store={store}>
+        <ExchangerList />
+      </Provider>,
+    );
+
     const exchangerCardButtons = screen.getAllByRole('button', { name: /See Details/i });
     fireEvent.click(exchangerCardButtons[0]);
 
