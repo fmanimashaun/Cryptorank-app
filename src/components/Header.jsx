@@ -59,6 +59,7 @@ const Header = () => {
               {!showSearch ? (
                 <>
                   <Button
+                    data-testid="search-button"
                     className={`me-2 ${Style.header__btn}`}
                     onClick={handleSearchClick}
                   >
@@ -71,12 +72,14 @@ const Header = () => {
               ) : (
                 <Form className="d-flex align-items-center">
                   <Form.Control
+                    data-testid="search-input"
                     type="text"
                     placeholder="Search"
                     className="me-2"
                     onChange={(e) => dispatch(filterBySearch(e.target.value))}
                   />
                   <Button
+                    data-testid="search-close-button"
                     className={Style.header__btn}
                     onClick={handleSearchCloseClick}
                   >

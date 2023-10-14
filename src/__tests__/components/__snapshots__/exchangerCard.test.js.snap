@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExchangerCard Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="card card"
+  >
+    <img
+      alt="Test Exchanger"
+      class="card-img image"
+      src="test-image-url"
+    />
+    <div
+      class="body card-body"
+    >
+      <div
+        class="card-title h5"
+      >
+        Test Exchanger
+      </div>
+      <p
+        class="text card-text"
+      >
+        Ranking: 1
+      </p>
+      <button
+        class="btn btn btn-primary"
+        type="button"
+      >
+        See Details
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
